@@ -2,10 +2,7 @@ package mygroup.project2boot.model;
 
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "users")
@@ -29,8 +26,8 @@ public class User {
     @Size(min = 2, max = 50, message = "Lastname should be between 2 and 50 characters")
     @Column(name = "last_name")
     private String lastName;
-    @Min(value = 1, message = "Age should be greater than 0")
     @Column(name = "age")
+    @Min(value = 1, message = "Age should be greater than 0")
     private byte age;
 
     public User() {
