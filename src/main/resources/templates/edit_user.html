@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о пользователе</title>
+</head>
+<body class="bodyEdit">
+<form th:method="PATCH" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
+    <table>
+        <tbody>
+        <tr>
+            <td>
+                <label for="name">Name: </label>
+            </td>
+            <td>
+                <input type="text" th:field="*{name}" id="name"/>
+            </td>
+            <td>
+                <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="lastname">Lastname </label>
+            </td>
+            <td>
+                <input type="text" th:field="*{lastName}" id="lastname"/>
+            </td>
+            <td>
+                <div style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="age">age: </label>
+            </td>
+            <td>
+                <input type="text" th:field="*{age}" id="age"/>
+            </td>
+            <td>
+                <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Confirm"/>
+            </td>
+            <td>
+                <input type="button" th:value="Cancel" onclick="window.location.href = '/'">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>
